@@ -15,6 +15,6 @@ class WeaponController extends Controller
      */
     public function index()
     {
-
+        return Inertia::render('Weapons');
     }
 }

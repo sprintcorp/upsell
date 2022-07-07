@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Hero extends Model
 {
     use HasFactory;
+
+    public static function boot() {
+        static::created(function($user) {
+
+        });
+    }
 }
