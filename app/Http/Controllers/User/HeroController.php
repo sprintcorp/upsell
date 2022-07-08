@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hero;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,6 +16,7 @@ class HeroController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Heroes');
+        $heroes = Hero::getDamage();
+        return Inertia::render('Heroes',compact('heroes'));
     }
 }

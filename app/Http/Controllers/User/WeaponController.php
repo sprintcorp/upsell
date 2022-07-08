@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Weapon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,6 +16,7 @@ class WeaponController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Weapons');
+        $weapons = Weapon::withCount('heroes')->get();
+        return Inertia::render('Weapons',compact('weapons'));
     }
 }

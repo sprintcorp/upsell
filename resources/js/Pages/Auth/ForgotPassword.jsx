@@ -29,7 +29,7 @@ export default function ForgotPassword({ status }) {
                 reset link that will allow you to choose a new one.
             </div>
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+            {status && <div className="mb-4 text-success">{status}</div>}
 
             <ValidationErrors errors={errors} />
 
@@ -38,7 +38,7 @@ export default function ForgotPassword({ status }) {
                     type="text"
                     name="email"
                     value={data.email}
-                    className="mt-1 block w-full"
+                    className="form-control"
                     isFocused={true}
                     handleChange={onHandleChange}
                 />

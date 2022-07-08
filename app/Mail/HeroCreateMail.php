@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Hero;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class UserCreateMail extends Mailable
+class HeroCreateMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,7 +17,7 @@ class UserCreateMail extends Mailable
      *
      * @return void
      */
-    public function __construct(public $user)
+    public function __construct(public Hero $hero)
     {
         //
     }
@@ -28,6 +29,6 @@ class UserCreateMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.user_create');
+        return $this->markdown('emails.hero_create')->subject('User account creation');
     }
 }

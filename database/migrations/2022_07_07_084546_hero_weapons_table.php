@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('hero_weapons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hero_id')->constrained();
-            $table->foreignId('weapon_id')->constrained();
+            $table->foreignId('hero_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('weapon_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -18,19 +18,21 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+        return Inertia::render('Auth/Login', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+        ]);
+
 });
 
-Route::get('/heroes',[HeroController::class,'index'])->middleware(['auth', 'verified'])->name('heroes');
-Route::get('/weapons',[WeaponController::class,'index'])->middleware(['auth', 'verified'])->name('weapons');
+Route::group(['middleware'=>'auth'], function () {
+    Route::get('/heroes',[HeroController::class,'index'])->name('heroes');
+    Route::get('/weapons',[WeaponController::class,'index'])->name('weapons');
+});
 
 require __DIR__.'/auth.php';
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
