@@ -41,6 +41,10 @@ Install client-side dependencies using node package manager
 
     npm install
 
+After installation serve front-end of the project
+
+    npm run dev
+
 
 Copy the example env files and make the required configuration changes (database, queues and smtp connection)
 

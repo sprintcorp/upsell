@@ -75,18 +75,22 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="d-flex justify-content-between mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="text-decoration-underline text-sm-start text-black"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
+                    <Link
+                        href={route('password.request')}
+                        className="text-decoration-underline text-sm-start text-black"
+                    >
+                        Forgot your password?
+                    </Link>
+
 
                     <Button className="ml-4" processing={processing}>
                         Log in
                     </Button>
+                </div>
+                <div className="mt-1">
+                    <Link href={route('register')} className="text-black">
+                        Don't have an account? Register.
+                    </Link>
                 </div>
             </form>
         </Guest>

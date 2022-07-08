@@ -3,7 +3,7 @@ import Button from '@/Components/Button';
 import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input';
 import ValidationErrors from '@/Components/ValidationErrors';
-import { Head, useForm } from '@inertiajs/inertia-react';
+import {Head, Link, useForm} from '@inertiajs/inertia-react';
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -43,7 +43,13 @@ export default function ForgotPassword({ status }) {
                     handleChange={onHandleChange}
                 />
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="d-flex justify-content-between mt-4">
+                    <Link
+                        href={route('login')}
+                        className="text-decoration-underline text-sm-start text-black"
+                    >
+                        Back to login
+                    </Link>
                     <Button className="ml-4" processing={processing}>
                         Email Password Reset Link
                     </Button>
