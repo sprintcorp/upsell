@@ -145,6 +145,8 @@ return [
 
         'widgets' => [
             'App\\Widgets\\Hero',
+            'App\\Widgets\\Weapon',
+            'App\\Widgets\\User',
         ],
 
     ],

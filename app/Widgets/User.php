@@ -1,10 +1,12 @@
 <?php
 
+
 namespace App\Widgets;
+
 
 use Arrilot\Widgets\AbstractWidget;
 
-class Hero extends AbstractWidget
+class User extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -19,16 +21,16 @@ class Hero extends AbstractWidget
      */
     public function run()
     {
-        $count = \App\Models\Hero::count();
-        $string = 'Heroes';
+        $count = \App\Models\User::count();
+        $string = 'Users';
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-medal-rank-star',
+            'icon'   => 'voyager-person',
             'title'  => "{$count} {$string}",
             'text' => '',
             'button' => [
-                'text' =>'View Heroes',
-                'link' => route('voyager.heroes.index'),
+                'text' =>'View Users',
+                'link' => route('voyager.users.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
         ]));
@@ -40,6 +42,6 @@ class Hero extends AbstractWidget
      * @return bool
      */
     public function shouldBeDisplayed(){
-        return auth()->user()->hasPermission('browse_heroes');
+        return auth()->user()->hasPermission('browse_users');
     }
 }
