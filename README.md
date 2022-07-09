@@ -71,6 +71,8 @@ Start the local development server
 
 You can now access the server at `http://127.0.0.1:8000`
 
+Access admin page `http://127.0.0.1:8000/admin`
+
 Running The Queue Worker for sending emails
 
     php artisan queue:work
